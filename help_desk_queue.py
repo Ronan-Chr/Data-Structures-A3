@@ -3,9 +3,51 @@ from node import Node
 
 # Implement your Queue class here
 class Queue:
-    # Delete the following line and implement your Queue class
-    pass
-    
+    def __init__(self):
+        self.front = None
+        self.rear = None 
+
+# defined enqueue
+    def enqueue(self,value):
+        new_node = Node(value)
+
+        if self.rear is None:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+
+#defined dequeue 
+    def dequeue(self):
+        if self.front is None:
+            return None
+
+        value = self.front.value
+        self.front = self.front.next
+
+        if self.front is None:
+            self.rear = None
+
+        return value
+
+#defined peek
+    def peek(self):
+        if self.front is None:
+            return None
+
+        return self.front.value
+
+#defined print queue
+    def print_queue(self):
+        if self.front is None:
+            print("The queue is empty")
+            return
+
+        current = self.front 
+        while current is not None:
+            print(f"- {current.value}")
+            current = current.next
 
 
 def run_help_desk():
