@@ -7,11 +7,11 @@ class Stack:
         self.top = None
 
     def push(self, value):
-        new_node= Node(value)
+        new_node = Node(value)
         new_node.next = self.top
         self.top = new_node
 
-    def pop(self): 
+    def pop(self):
         if self.top is None:
             return None
 
@@ -26,13 +26,13 @@ class Stack:
 
     def print_stack(self):
         if self.top is None:
-            print("Empty Stack")
+            print("The stack is empty")
             return
 
-        current= self.top 
+        current = self.top
         while current is not None:
             print(f"- {current.value}")
-            current =current.next
+            current = current.next
 
 def run_undo_redo():
     # Create instances of the Stack class for undo and redo
