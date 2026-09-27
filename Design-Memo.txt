@@ -1,8 +1,17 @@
 Why is a stack the right choice for undo/redo?
-    -
+    - The reason stacks is for undo/redo system is because of how objects inside lists are handled last in first out.
+    This makes it time efficient and useful in real operations because recent datas used manipulate things like Undo removing the last thing added to the stack.
+    The same way undo/redo stores undone/redone tasks and then calls them to restore the data to a state it was in prior. Its better then using other methods
+    which sort through all the possible items in a list waiting for a condition to be met while the stack looks for the objects in either "Last In or the First out" spots in the list / stack.
+    It also helps by not having repeating undo possible actions since it removes from a list of potential objects that can be undone and redone it never doubles up on them similar to a VCS like Github.
 
 Why is a queue better suited for the help desk?
-    -
+    -A queue is better suited for the help desk because a queues priorities are "First in First Out".
+    The way customers should be handled by a help desk this functionally makes sense sending tickets for help to people who can fufill them.
+    This also makes it to where even in a rush of support tickets the person whos been waiting the longest is prioritized making for good operation.
 
 How do your implementations differ from Python’s built-in lists?
-    -
+    -The implementations difference mainly from built in Python lists is that the lists use
+    nodes from node.py to store and change where values are being held. I had to fix the ordering of the queue for how it stored
+    values in the rear and front of the list. Python does the heavy lifting for logic and the nodes does data directing in this case.
+    The manuall updating of nodes objects instead of direct data is the main difference.
