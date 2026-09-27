@@ -8,7 +8,7 @@ class Queue:
         self.rear = None 
 
 # defined enqueue
-    def enqueue(self,value):
+    def enqueue(self, value):
         new_node = Node(value)
 
         if self.rear is None:
@@ -41,7 +41,7 @@ class Queue:
 #defined print queue
     def print_queue(self):
         if self.front is None:
-            print("The queue is empty")
+            print("Queue is empty")
             return
 
         current = self.front 
@@ -52,7 +52,7 @@ class Queue:
 
 def run_help_desk():
     # Create an instance of the Queue class
-    
+    queue = Queue()
 
     while True:
         print("\n--- Help Desk Ticketing System ---")
@@ -66,22 +66,32 @@ def run_help_desk():
         if choice == "1":
             name = input("Enter customer name: ")
             # Add the customer to the queue
-            
-            
+            queue.enqueue(name)
             print(f"{name} added to the queue.")
+
+
         elif choice == "2":
             # Help the next customer in the queue and return message that they were helped
-            pass # delete this line
+            customer = queue.dequeue()
+            if customer is not None:
+                print(f"Helped: {customer}")
+            else:
+                print("No customers to help")
 
 
         elif choice == "3":
             # Peek at the next customer in the queue and return their name
-            pass # delete this line
-
+            customer = queue.peek()
+            if customer is not None:
+                print(f"Next customer: {customer}")
+            else:
+                print("No customers in the queue") 
+                
 
         elif choice == "4":
             # Print all customers in the queue
-            print("\nWaiting customers:")
+            print(f"\nWaiting customers:")
+            queue.print_queue()
             
 
         elif choice == "5":

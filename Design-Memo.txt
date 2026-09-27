@@ -1,0 +1,8 @@
+Why is a stack the right choice for undo/redo?
+    -
+
+Why is a queue better suited for the help desk?
+    -
+
+How do your implementations differ from Python’s built-in lists?
+    -
